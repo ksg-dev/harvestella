@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    All Crops
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "crops/crop.css" %}"/>
+    <link rel="stylesheet" href="{% static "crops/all-crops.css" %}"/>
+{% endblock %}
+
+{% block content %}
+<section id="all-crops">
+    <h2>All Crops</h2>
+    <ul>
+        {% for crop in all_crops %}
+            {% include "crops/includes/crop.html" %}
+        {% endfor %}
+    </ul>
+</section>
+
+{% endblock %}

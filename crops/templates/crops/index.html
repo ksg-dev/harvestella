@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "crops/crop.css" %}"/>
+    <link rel="stylesheet" href="{% static "crops/index.css" %}"/>
+{% endblock %}
+
+{% block title %}
+    Home
+{% endblock%}
+
+{% block content %}
+<section id="welcome">
+    <header>
+        <img src="{% static "" %}" alt="Sonni -- The Author of This Blog" />
+        <h2>HARVESTELLA FARMING HQ</h2>
+    </header>
+    <p>Compare crops by season, buy/sell, area price changes, and more</p>
+</section>
+
+<section id="preview-crops"> 
+    <h2>Crops</h2>
+
+    <ul>
+        {% for crop in crops %}
+            {% include "crops/includes/crop.html" %}
+        {% endfor %}
+    </ul>
+</section>
+    
+<section id="about">
+    <h2>MORE TO COME</h2>
+    <p>
+        We'll add more here later
+    </p>
+    <p>
+        We'll add more here too
+    </p>
+</section>
+
+{% endblock %}

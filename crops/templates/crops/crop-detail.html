@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{ crop.crop_name }}
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "crops/crop-detail.css" %}"/>
+{% endblock %}
+
+{% block content %}
+    <section id="summary">
+        <h2> {{ crop.crop_name }}</h2>
+        <div>
+            {% for seasons in crop_seasons %}
+                <span class="season">{{ seasons.season }}</span>
+            {% endfor %}
+        </div>
+
+        <article>
+            <img src="" alt="{{ crop.crop_name }}" />
+            <div>
+                Last updated on Wednesday
+            </div>
+        </article>
+    </section>
+
+    <main>
+        This is where content would be.
+    </main>
+{% endblock %}

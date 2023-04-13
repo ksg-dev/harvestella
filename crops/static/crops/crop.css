@@ -1,0 +1,56 @@
+.crop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .crop a {
+    text-decoration: none;
+    color: black;
+    transition: all 0.2s ease;
+    padding: 1rem;
+  }
+  
+  .crop a:hover,
+  .crop a:active {
+    transform: scale(1.1);
+    background-color: #974b18;
+    color: white;
+  }
+  
+  .crop img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .crop h3 {
+    margin: 0.25rem 0;
+  }
+  
+  .crop time {
+    color: #666666;
+    margin: 0.25rem;
+    font-style: italic;
+    font-size: 0.85rem;
+  }
+  
+  .crop:hover time,
+  .crop:active time {
+    color: white;
+  }
+  
+  .crop img {
+    width: 7rem;
+    height: 7rem;
+  }
+  
+  .crop a {
+    height: 22rem;
+    transform-origin: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    background-color: white;
+  }
