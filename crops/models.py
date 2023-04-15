@@ -20,13 +20,22 @@ class Seasons(models.Model):
 
 class Crop(models.Model):
     crop_name = models.CharField(max_length=50)
-    buy = models.IntegerField()
-    sell = models.IntegerField()
-    image_name = models.CharField(max_length=100, default="static/crops/images/space.jpg")
+    image = models.ImageField(upload_to="pics", null=True)
+    buy = models.PositiveIntegerField()
+    sell = models.PositiveIntegerField()
+    reharvest = models.PositiveIntegerField(default=1)
+    total_sell = models.PositiveIntegerField(blank=True)
+    premium_sell = models.PositiveIntegerField(null=True)
+    total_profit = models.PositiveIntegerField(blank=True)
     slug = models.SlugField(unique=True)
     grow_season = models.ManyToManyField(Seasons)
     biome = models.ForeignKey(Biome, on_delete=models.SET_NULL, null=True, related_name="biome")
             
+    def save(self, *args, **kwargs):
+        self.total_sell = self.sell * self.reharvest
+        self.total_profit = self.total_sell - self.buy
+        super().save(*args, **kwargs)
+    
     def __str__(self):
-        return f"{self.crop_name} - {self.buy} - {self.sell}"
+        return f"{self.crop_name} - Buy: {self.buy} - Sell: {self.sell} Total Profit: {self.total_profit}"
 

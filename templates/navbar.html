@@ -1,0 +1,25 @@
+{% url "crops:starting-page" as path_to_start %}
+{% url "crops:crops-page" as path_to_crops %}
+{% url "crops:crops-detail-page" as path_to_detail %}
+{% url "files:upload-view" as path_to_upload %}
+
+
+<div class="ui secondary pointing menu">
+    <a href="{{ path_to_start }}" class="{% if request.path == path_to_start %}item active{% endif %}">
+      Home
+    </a>
+    <a href="{{ path_to_crops }}" class="{% if request.path == path_to_crops %}item active{% endif %}">
+        All Crops
+    </a>
+    <a href="{{ path_to_upload }}" class="{% if request.path == path_to_upload %}active{% endif %} item">
+        Upload File
+      </a>
+    <div class="right menu">
+      <a class="ui item">
+        Logout
+      </a>
+    </div>
+  </div>
+  <div class="ui segment">
+    <p></p>
+  </div>

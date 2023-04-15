@@ -7,7 +7,9 @@ from .models import Crop, Seasons, Biome
 class StartingPageView(ListView):
     template_name = "crops/index.html"
     model = Crop
+    ordering = ["total_profit"]
     context_object_name = "crops"
+
 
 class AllCropsView(ListView):
     template_name = "crops/all-crops.html"
@@ -35,6 +37,6 @@ class SingleCropView(View):
 
         return render(request, "crops/crop-detail.html", context)
 
-class
+
 
 
